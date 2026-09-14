@@ -1,0 +1,39 @@
+{
+  "name": "sudoku",
+  "productName": "Sudoku",
+  "version": "1.0.0",
+  "description": "Six shades of difficulty, no clock watching.",
+  "main": "main.js",
+  "author": "Phoenix",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:linux": "electron-builder --linux AppImage deb rpm",
+    "build:appimage": "electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.phoenix.sudoku",
+    "productName": "Sudoku",
+    "files": [
+      "index.html",
+      "manifest.json",
+      "sw.js",
+      "main.js",
+      "icons/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "rpm"],
+      "category": "Game",
+      "icon": "icons/icon-512.png",
+      "executableName": "sudoku"
+    }
+  }
+}
